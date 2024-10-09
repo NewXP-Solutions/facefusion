@@ -17,10 +17,10 @@ class Predictor(BasePredictor):
         face_swapper_model: str = Input(default="inswapper_128_fp16", description="Face swapper model (e.g., --face-swapper-model)"),
         face_enhancer_model: str = Input(default="gfpgan_1.4", description="Face enhancer model (e.g., --face-enhancer-model)"),
         expression_restorer_model: str = Input(default="live_portrait", description="Expression restorer model (e.g., --expression-restorer-model)"),
-        frame_enhancer_model: str = Input(default=None, description="Frame enhancer model (e.g., --frame-enhancer-model)", required=False),
-        frame_colorizer_model: str = Input(default=None, description="Frame colorizer model (e.g., --frame-colorizer-model)", required=False),
-        face_editor_model: str = Input(default=None, description="Face editor model (e.g., --face-editor-model)", required=False),
-        face_debugger_items: str = Input(default=None, description="Face debugger items (e.g., --face-debugger-items)", required=False)
+        frame_enhancer_model: str = Input(default=None, description="Frame enhancer model (e.g., --frame-enhancer-model)"),
+        frame_colorizer_model: str = Input(default=None, description="Frame colorizer model (e.g., --frame-colorizer-model)"),
+        face_editor_model: str = Input(default=None, description="Face editor model (e.g., --face-editor-model)"),
+        face_debugger_items: str = Input(default=None, description="Face debugger items (e.g., --face-debugger-items)")
     ) -> Path:
         """Run the face fusion model with the provided inputs."""
 
