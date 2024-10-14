@@ -1,3 +1,4 @@
+import os
 from argparse import ArgumentParser
 from typing import List, Tuple
 
@@ -336,6 +337,8 @@ def pre_check() -> bool:
 
 
 def pre_process(mode : ProcessMode) -> bool:
+	state_manager.set_item('output_path', os.path.abspath(state_manager.get_item('output_path')))
+	print("Directory", state_manager.get_item('output_path'))
 	if not has_image(state_manager.get_item('source_paths')):
 		logger.error(wording.get('choose_image_source') + wording.get('exclamation_mark'), __name__)
 		return False
