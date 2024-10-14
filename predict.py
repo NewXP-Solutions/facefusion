@@ -25,10 +25,6 @@ class Predictor(BasePredictor):
         """Run the face fusion model with the provided inputs."""
 
         # Ensure the output directory exists
-        output_directory = os.path.dirname(output_path)
-        if not os.path.exists(output_directory):
-            os.makedirs(output_directory)
-            print(f"Created output directory at {output_directory}")
 
         # Construct the base command with mandatory arguments
         command = [
