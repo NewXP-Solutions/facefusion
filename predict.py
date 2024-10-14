@@ -25,13 +25,18 @@ class Predictor(BasePredictor):
         """Run the face fusion model with the provided inputs."""
 
         # Ensure the output directory exists
+		outfile_path = 'outputs/result.mp4'
+		outputs_directory = os.path.join(current_directory, 'outputs')
+        if not os.path.exists(outputs_directory):
+            os.makedirs(outputs_directory)
+            print("Created 'outputs' directory.")
 
         # Construct the base command with mandatory arguments
         command = [
             "python", "facefusion.py", "headless-run",
             "-s", str(source_image),
             "-t", str(target_video),
-            "-o", str(output_path),
+            "-o", str(outfile_path),
             "--execution-providers", execution_providers,
             "--processors", processors,
             "--face-swapper-model", face_swapper_model,
@@ -59,4 +64,4 @@ class Predictor(BasePredictor):
         subprocess.run(command)
 
         # Return the output path where the result is stored
-        return Path(output_path)
+        return Path(outfile_path)
