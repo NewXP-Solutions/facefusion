@@ -39,7 +39,7 @@ class Predictor(BasePredictor):
             "-t", str(target_video),
             "-o", str(outfile_path),
             "--execution-providers", execution_providers,
-            "--processors", processors,
+            "--processors", *processors.split(),
             "--face-swapper-model", face_swapper_model,
             "--face-enhancer-model", face_enhancer_model,
             "--expression-restorer-model", expression_restorer_model
