@@ -11,7 +11,6 @@ class Predictor(BasePredictor):
         self,
         source_image: Path = Input(description="Path to the source image (e.g., -s flag)"),
         target_video: Path = Input(description="Path to the target video (e.g., -t flag)"),
-        output_path: Path = Input(description="Path to the output file (e.g., -o flag)"),
         execution_providers: str = Input(default="cuda", description="Execution providers (e.g., --execution-providers)"),
         processors: str = Input(default="face_swapper face_enhancer expression_restorer", description="Processors (e.g., --processors)"),
         face_swapper_model: str = Input(default="inswapper_128_fp16", description="Face swapper model (e.g., --face-swapper-model)"),
@@ -25,8 +24,10 @@ class Predictor(BasePredictor):
         """Run the face fusion model with the provided inputs."""
 
         # Ensure the output directory exists
-		outfile_path = 'outputs/result.mp4'
-		outputs_directory = os.path.join(current_directory, 'outputs')
+        print(f"Output Path")
+        current_directory = os.getcwd()
+        outfile_path = 'outputs/result.mp4'
+        outputs_directory = os.path.join(current_directory, 'outputs')
         if not os.path.exists(outputs_directory):
             os.makedirs(outputs_directory)
             print("Created 'outputs' directory.")
